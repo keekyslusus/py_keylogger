@@ -23,6 +23,7 @@ this is a simple python keylogger script that logs keystrokes and sends periodic
 1. run the script: `python keylogger.py`
 2. the keylogger will start monitoring keystrokes in the background.
 3. periodically, it will send logs to the specified Discord channel.
+4. pyinstaller: `pyinstaller --noconsole --icon=icon.ico --onefile py_keylogger.py` (optional)
 
 **note: use this script responsibly and in compliance with legal and ethical standards. unauthorized use of keyloggers is strictly prohibited.**
 

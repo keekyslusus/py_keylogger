@@ -1,4 +1,4 @@
-# Keylogger with discord Integration
+# keylogger with discord Integration
 
 this is a simple python keylogger script that logs keystrokes and sends periodic reports to a discord webhook. the keylogger uses the `pynput` library to monitor keyboard input and the `requests` library to send messages to a discord channel.
 

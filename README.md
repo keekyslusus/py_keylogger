@@ -6,7 +6,7 @@ this is a simple python keylogger script that logs keystrokes and sends periodic
 
 - logs keystrokes and formats special keys for readability.
 - periodically sends logs to a specified discord webhook.
-- notifies on specific keywords (e.g., "mail") detected in the logs.
+- notifies on specific keywords (e.g., "mail") detected in the logs. `(Disabled by default due to lags)`
 
 ## prerequisites
 

